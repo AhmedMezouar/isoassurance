@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1514" height="1866.134" viewBox="0 0 1514 1866.134">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Tracé_9204" data-name="Tracé 9204" d="M30,0H1484c16.569,0,30,19.091,30,42.641V1543.589c0,23.55-13.431,42.641-30,42.641H30c-16.569,0-30-19.091-30-42.641V42.641C0,19.091,13.431,0,30,0Z" fill="#fff" stroke="rgba(255,255,255,0.28)" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Groupe_3221" data-name="Groupe 3221" transform="translate(-203 -161.234)">
+    <path id="Tracé_9767" data-name="Tracé 9767" d="M30,0H1484c16.569,0,30,22.46,30,50.165v1765.8c0,27.705-13.431,50.165-30,50.165H30c-16.569,0-30-22.459-30-50.165V50.165C0,22.46,13.431,0,30,0Z" transform="translate(203 161.234)" fill="#69b419" opacity="0.8"/>
+    <g id="Composant_5_11" data-name="Composant 5 – 11" transform="translate(203 161.234)">
+      <g id="Groupe_3033" data-name="Groupe 3033">
+        <g id="Groupe_de_masques_3" data-name="Groupe de masques 3" clip-path="url(#clip-path)">
+          <path id="Tracé_9202" data-name="Tracé 9202" d="M8760.729,1954.373s31.125,398.6,201.572,574.328,351.269,102.865,496.52,205.729,253.447,21.43,253.447,21.43V2022.949Z" transform="translate(-8177.915 -2095.319)" fill="#fff"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

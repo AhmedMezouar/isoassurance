@@ -1,0 +1,39 @@
+.gm-fullscreen-control{
+  display: none;
+}
+.gmap_canvas {
+  overflow: hidden;
+  background: none !important;
+  height: 100%;
+  width: 100%;opacity: relative;
+}
+.mapdiv{
+    width: 100%;
+    border-radius: 12px;
+    height: 100%;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+.mapouter {
+  position: relative;
+  text-align: right;
+  height: 100%;
+  width: 100%;
+}
+
+.hoverMarker:hover{
+  cursor:pointer !important;
+}
+#floating-panel {
+  position: absolute;
+  top: 10px;
+  left: 25%;
+  z-index: 5;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #999;
+  text-align: center;
+  font-family: "Roboto", "sans-serif";
+  line-height: 30px;
+  padding-left: 10px;
+}
