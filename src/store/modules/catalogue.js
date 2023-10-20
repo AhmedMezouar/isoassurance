@@ -12,7 +12,7 @@ export const state = {
   name:"",
   lat: 0,
   long: 0,
-  url:"/api/hospital/filter",
+  url:"/api/catalogue/filter",
   service:"hospital",
   lastpage:1
 };

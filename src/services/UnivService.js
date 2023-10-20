@@ -11,6 +11,6 @@ const apiClient = axios.create({
 
 export default {
   filterByParams(url,nextPage,data) {
-      return apiClient.post(`/api/${url}/filter?page=${nextPage}`, data);
+      return apiClient.post(`${url}/filter?page=${nextPage}`, data);
   },
 };

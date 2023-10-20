@@ -41,14 +41,58 @@ const wife = ref();
         default:[]
     }
  })
- const age = (birth) => {
-  let now = new Date();
-  let year = now.getFullYear();
-  let birthday = new Date(birth);
-  let years = year - birthday.getFullYear();
-  birthday = new Date(birthday.getTime()); // clone
-  birthday.setFullYear(year);
-  return now >= birthday ? years : years - 1;
+const age = (birth) => {
+  let birthdate = birth;
+
+  const parts = birthdate.split("/"); // Split the date string into day, month, and year parts
+
+  // Create a new Date object using the parts (note that month in Date object is zero-indexed)
+  const birthDate = new Date(parts[2], parts[1] - 1, parts[0]);
+
+  // Get the current date
+  const currentDate = new Date();
+
+  // Calculate the age
+  let age = currentDate.getFullYear() - birthDate.getFullYear();
+
+  // Adjust the age if the birth date has not occurred yet this year
+  const birthMonth = birthDate.getMonth();
+  const currentMonth = currentDate.getMonth();
+  if (
+    currentMonth < birthMonth ||
+    (currentMonth === birthMonth && currentDate.getDate() < birthDate.getDate())
+  ) {
+    age--;
+  }
+  return age
+};
+const checkAge = (child) => {
+  let birthdate = child.birth;
+
+  const parts = birthdate.split("/"); // Split the date string into day, month, and year parts
+
+  // Create a new Date object using the parts (note that month in Date object is zero-indexed)
+  const birthDate = new Date(parts[2], parts[1] - 1, parts[0]);
+
+  // Get the current date
+  const currentDate = new Date();
+
+  // Calculate the age
+  let age = currentDate.getFullYear() - birthDate.getFullYear();
+
+  // Adjust the age if the birth date has not occurred yet this year
+  const birthMonth = birthDate.getMonth();
+  const currentMonth = currentDate.getMonth();
+  if (
+    currentMonth < birthMonth ||
+    (currentMonth === birthMonth && currentDate.getDate() < birthDate.getDate())
+  ) {
+    age--;
+  }
+
+  console.log("age" + age);
+
+  return age < 18 ? true : false;
 };
  const assignCouples=(wifeElement,isChecked)=>{
   appointement.addCouples(wifeElement,isChecked)

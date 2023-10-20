@@ -1,5 +1,5 @@
 <template>
-  <div class="border-2 border-slate-200 rounded-2xl min-h-64">
+  <div class="border-2 border-slate-200 rounded-2xl min-h-64 mt-16">
     <div class="mx-auto w-10/12 py-6">
       <!-- part typgoraphy-->
       <div class="flex justify-start">
@@ -13,7 +13,7 @@
         <div class="grid grid-cols-1">
           <p class="text-blue-500 font-medium">Price</p>
           <span class="text-sm text-slate-400">please select your price</span>
-          <div class="rounded-xl border-2 border-stone-400 bg-slate-100">
+          <div class="flex rounded-xl border-2 border-stone-400 bg-slate-100">
             <input type="number" @input="handleChange" class="px-4 py-1 w-72" />
             <span class="text-lg px-4 py-1 border-l-2 border-stone-400"
               >DZD</span
@@ -28,7 +28,7 @@
           <span class="text-sm text-slate-400"
             >Automatic profit calculator for our clients</span
           >
-          <div class="rounded-xl border-2 border-stone-400 bg-slate-100">
+          <div class="flex rounded-xl border-2 border-stone-400 bg-slate-100">
             <input
               type="number"
               :disabled="true"
@@ -120,4 +120,6 @@ const submitAppointement = async () => {
 };
 </script>
 
-<style></style>
+<style>
+
+</style>
