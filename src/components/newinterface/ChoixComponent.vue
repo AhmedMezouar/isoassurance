@@ -4,8 +4,8 @@
 
 <!-- Ambulance-->
 <div class="thiscntnr" >
-<div id="" style="overflow: hidden;">
-  <div id="ambulanceDetails">
+<div id="choix-desktop" style="overflow: hidden;">
+  <div id="">
       <div class="">
         <div>
           <div class="row d-flex justify-content-center align-items-center">
@@ -43,7 +43,7 @@
       </div>
   </div>
   <PhonePart3></PhonePart3>
-</div>
+</div> 
 <div class="flex icnss">
   <div class="w-2/5 flex" style="justify-content:flex-end">
     <img class="ambicon" :class="$store.getters.getL==='ar'?'ar':''" src="/inso-pics/RightAMB.png" alt="">

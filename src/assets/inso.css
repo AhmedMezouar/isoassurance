@@ -2027,10 +2027,24 @@ select {
 #clinique--2 {
   display: none;
 } 
-
+.hotel-offer {
+  margin-left: -250px;
+}
 /* Partie phone hopital */
 /* Version tablette nouveau */ 
-@media screen and (min-width: 450px) and (max-width: 1024px) {
+@media screen and (min-width: 450px) and (max-width: 1324px) {
+  #voyage_1 {
+    display: block;
+  }
+  .prime {
+    display: none;
+  }
+  #voyage {
+    display: block !important;
+  }
+  .hotel-offer {
+    margin-left: -80px;
+  }
   .phoneIcnns2 {
     display: flex;
     justify-content: center;
@@ -2062,6 +2076,18 @@ select {
 }
 .gmap_canvas {
   width: 200% !important;
+}
+#reserve {
+  display: none !important;
+}
+#ambulanceDetails {
+  display: none;
+}
+#choix {
+  display: none !important;
+}
+#choix-desktop {
+  display: block !important;
 }
 }
 @media screen and (max-width: 1024px) {

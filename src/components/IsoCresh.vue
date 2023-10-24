@@ -50,11 +50,7 @@
                     </select>
                     <div style="pointer-events: none"
                       class="absolute right-0 h-full top-0 items-center justify-center px-3 flex z-10">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="5" viewBox="0 0 23 10">
-                        <path fill="#707070" id="Polygone_1" data-name="Polygone 1"
-                          d="M10.844.571a1,1,0,0,1,1.312,0l8.826,7.675A1,1,0,0,1,20.326,10H2.674a1,1,0,0,1-.656-1.755Z"
-                          transform="translate(23 10) rotate(180)" />
-                      </svg>
+                      
                     </div>
                   </div>                    
                 </div>

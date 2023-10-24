@@ -3,7 +3,7 @@
     <div class="text-center w-full text-white py-2 specTitle">
       <h6 class="specialities MainTitle lg:text-3xl text-lg font-medium">{{$store.getters.getT("Specialities")}}</h6>
     </div>
-    <div class="widthMain specs" style="padding-top: 28px;width: calc(var(--inso-w) + 10%);">
+    <div class="widthMain-1 specs" style="padding-top: 28px;width: calc(var(--inso-w) + 10%);">
       <div ref="hsp" @mousedown="grappThis($event)" @mousemove="moveSlider($event)" @mouseup="stopgrapping()" :class="grapped?'abtc':''" class="flex justify-between cursor-grab select-none flex-nowrap overflow-x-auto scrollbar-hide trans">
         <button class="specMoveBtns hidden lg:inline hover:scale-105 -right-5" @click="goright()">
           <img src="/inso-pics/arrow.svg" style="transform: scaleX(-1);" alt="">

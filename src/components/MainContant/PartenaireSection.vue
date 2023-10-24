@@ -28,7 +28,7 @@
           <p class="amb__txt">
             {{$store.getters.getT("Pour votre confort et bien-être, ISO ASSURANCE met à votre disposition des véhicules médicalisés pour votre transport et assure des prises de sang pour des examens médicaux à domicile, à travers le territoire national.")}}
           </p>
-          <button @click="goReservation()" class="btnNew" style="font-weight: bold;">
+          <button id="reserve" @click="goReservation()" class="btnNew" style="font-weight: bold;">
               Réserver maintenant 
           </button>
           

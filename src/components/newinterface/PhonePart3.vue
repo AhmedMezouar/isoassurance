@@ -1,5 +1,5 @@
 <template>
-    <div class="phoneIcnns my-4">
+    <div id="choix" class="phoneIcnns my-4">
         <div class="flex icnss">
             <div class="row d-flex justify-content-center align-items-center">
             <div class="col-6">
