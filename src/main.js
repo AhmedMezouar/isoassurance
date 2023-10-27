@@ -15,7 +15,7 @@ import IsoVoyageTunisie from "../src/components/IsoVoyageTunisie.vue"
 import IsoVoyageEgypte from "../src/components/IsoVoyageEgypte.vue"
 import IsoVoyageImage from "../src/components/IsoVoyageImage.vue"
 import IsoUniv from "../src/components/IsoUniversity.vue"
-import IsoHotel from "../src/components/IsoHotelCard.vue"
+import IsoHotel from "../src/components/IsoHotel.vue"
 import ReservationComponent from '../src/components/newinterface/ReservationComponent.vue'
 import ConfirmationComponent from '../src/components/newinterface/ConfirmationComponent.vue'
 import ChoixComponent from '../src/components/newinterface/ChoixComponent.vue'

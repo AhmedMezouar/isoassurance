@@ -14,11 +14,12 @@ export const state = {
   long: 0,
   service:"hotel",
   url: "/api/hotel/filter",
+  lastpage:1
 };
 
 export const mutations = {
   SET_HOTELS(state, hotels) {
-    state.hotels.push(...hotels);
+    state.hotels= hotels
   },
   SET_HOSPITALS_TOTAL(state, hotelsTotal) {
     state.hotelsTotal = hotelsTotal;
@@ -56,14 +57,14 @@ export const mutations = {
 };
 
 export const actions = {
-  fetchHotel({ commit }, params) {
-    console.log("hmida")
+  fetchHotels({ commit }, params) {
     const { nextPage, ...data } = params;
-    HotelService.getAll(state.url, nextPage, data)
+    HotelService.filterByParams(state.service, nextPage, data)
       .then((response) => {
+        console.log("Api hotel response ok , Total : ",response.data.total);
         commit(
           "SET_HOTEL_TOTAL",
-          parseInt(response.headers["x-total-count"])
+          parseInt(response.data.total)
         );
         commit("SET_NAME", params);
         commit("RESSET_HOTEL", params);

@@ -104,7 +104,7 @@
         <UnivindexComponent></UnivindexComponent>
         <div class="container hospitalsList univer-deskt" id="univer-deskt">
           <div class="row">
-              <div class="col-sm-4" v-for="(hospital, index) in getHospitals" :key="index" @mouseover="hoverMarker(index)" @mouseleave="leaveMarker(index)">
+              <div class="col-sm-4" v-for="(hospital, index) in getUniversities" :key="index" @mouseover="hoverMarker(index)" @mouseleave="leaveMarker(index)">
                 <div class="card card2">
                   <div class="card-body card-body2">
                     <div class="row">
@@ -215,7 +215,9 @@
                   </div>
                   <div class="lg:w-1/2">
                     <div class="relative hidden w-fit searchsection" style="margin-inline: 5px;border-radius: 20px;background: rgba(255, 255, 255, .77);">
-                      <div class="searchtxt"><input style="background-color: transparent;" type="text" name="search" id="search" placeholder="Search ..." @keyup.stop="handleInput($event)" class="w-full py-1.5 px-4 placeholder:text-slate-400"/></div>
+                      <div class="searchtxt">
+                        <input style="background-color: transparent;" type="text" name="search" id="search" placeholder="Search ..." @keyup.stop="handleInput($event)" class="w-full py-1.5 px-4 placeholder:text-slate-400"/>
+                      </div>
                       <div class="flex items-center searchicon">
                         <svg class="h-7 w-7" fill="#3B3B3B" viewBox="0 0 20 20">
                           <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
@@ -304,10 +306,10 @@
 </template>
 <script>
 import {
-  fetchHospitalsByParams,
+  fetchUnivsByParams,
   fetchUnivs,
-  SetCountry,
-  SetWilaya,
+  setUniversityCountry,
+  setUniversityWilaya,
   getMarkers,
   setCenter,leave_marker,mark_marker
 } from "../composable/index";
@@ -339,7 +341,7 @@ export default {
       lat: "",
       long: "",
       nextPage: 1,
-      hospitals: [],
+      universities: [],
       markers: [],
       moreExists: false,
       country: "Turc",
@@ -393,12 +395,12 @@ export default {
       },
     },
     getMarkers() {
-      this.getHospitals;
+      this.get;
       getMarkers(this.$store,"univ");
       return this.$store.state.univ.markers;
     },
-    getHospitals() {
-      return this.$store.state.univ.hospitals;
+    getUniversities() {
+      return this.$store.state.univ.universities;
     },
     getSpecialityName() {
       return this.$store.state.speciality.specialityName;
@@ -485,13 +487,13 @@ export default {
       if (key != "country") {
         this.country = key;
         this.getCountryWilaya();
-        SetCountry(this.$store, this.country, this.nextPage);
+        setUniversityCountry(this.$store, this.country, this.nextPage);
         const { lat, long } = this.$store.getters.getCountryById(
           this.country
         ).name;
 
         setCenter(this.$store, lat, long);
-        this.getHospitals;
+        this.getUniversities;
         this.getMark;
       }
     },
@@ -501,22 +503,22 @@ export default {
       const country = event.target.value;
       this.country = country;
       this.getCountryWilaya();
-      SetCountry(this.$store, country, this.nextPage);
+      setUniversityCountry(this.$store, country, this.nextPage);
       const { lat, long } = this.$store.getters.getCountryById(
         this.country
       ).name;
       setCenter(this.$store, lat, long);
-      this.getHospitals;
+      this.getUniversities;
       this.getMarkers;
     },
     changeWilaya(event) {
       const wilaya = event.target.value;
-      SetWilaya(this.$store, wilaya, this.nextPage);
+      setUniversityWilaya(this.$store, wilaya, this.nextPage);
       fetchUnivs(
           this.$store,
           wilaya,
         );
-      this.getHospitals;
+      this.getUniversities;
       this.getMarkers;
 
       const { lat, long } = this.$store.getters.getWilayaById(
@@ -528,12 +530,12 @@ export default {
     WhatToShow() {
       this.showAll = !this.showAll;
     },
-    getRestrictedHospital(speciaName) {
-      fetchHospitalsByParams(this.$store, this.nextPage, speciaName);
+    getRestrictedUniversity(speciaName) {
+      fetchUnivsByParams(this.$store, this.nextPage, speciaName);
     },
     handleInput(e) {
       let speciaName = e.target.value;
-      fetchHospitalsByParams(this.$store, this.nextPage, speciaName);
+      fetchUnivsByParams(this.$store, this.nextPage, speciaName);
     },
     getLocation(closure) {
       if (navigator.geolocation) {

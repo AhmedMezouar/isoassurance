@@ -9,7 +9,7 @@ function fetchHospitals(
   if (window.innerWidth > 750) {
    // nbrToShow = 10;
   }
-  
+
   store
     .dispatch("catalogue/fetchHospitals", {
       nextPage: nextPage,
@@ -35,14 +35,7 @@ function fetchHospitalsByParams(
   nextPage = 1,
   name,
 ) {
-  store
-    .dispatch("speciality/setSpecialityName", name)
-    .then(() => {
-
-    })
-    .catch(() => {
-      console.log("There was a problem creating your event");
-    });
+  
   fetchHospitals(
     store,
     nextPage,

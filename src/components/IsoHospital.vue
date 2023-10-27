@@ -13,112 +13,112 @@
                 </div>
                 <div class="col-4">
                   <p class="thistt">
-                    <img :src="'/inso-pics/' + flag"
-                      style="border-radius: 100%;display: inline;width: 40px;" alt="">
-                       Cliniques/Santé
-                      </p>
+                    <img :src="'/inso-pics/' + flag" style="border-radius: 100%;display: inline;width: 40px;" alt="">
+                    Cliniques/Santé
+                  </p>
                 </div>
                 <div class="col-4 support">
-                    <div class="flex justify-around py-1 flex-col items-center">
-                      <a href="tel:+213556000023"
-                        class="title1 contact lg:text-start text-center lg:font-normal font-semibold cursor-pointer iso-hover">ISO ASSURANCE Will Guide
-                        you</a>
-                    </div>
+                  <div class="flex items-center">
+                    <a href="tel:+213556000023"
+                      class="title1 contact  lg:text-start text-center lg:font-normal font-semibold cursor-pointer iso-hover">
+                      ISO ASSURANCE Will Guide you</a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div class="container">
-              <div class="row d-flex justify-content-center align-items">
-                <div class="col-6">
-                  <p class="title3">Le membre ISO Assurance bénéficie de plusieurs avantages
-                  «confort et remises sur les tarifs» sur les services
-                  offerts par nos établissements de santé conventionnées.</p>
-                </div>
-                <div class="col-2">
-                  <div class="">
-                    <div class="relative">
-                      <button class="btnData countrytts lg:text-lg text-sm pl-3 w-full overflow-hidden"
-                        style="padding-right: 35px" :class="[country != 'country' ? 'choosedData' : '']" @click="
-                          dropd1 = !dropd1;
-                        dropd2 = false;
-                        ">
-                        <span v-show="country === 'country'">{{
-                          $store.getters.getT("country")
-                        }}</span>
-                        <div v-show="cc.word === country" v-for="(cc, index) in countries" :key="cc"
-                          @click="changeMyCountry(cc.word, index)" class="flex items-center cursor-pointer">
-                          <img :src="'/' + cc.flag" class="mr-2" width="15" />
-                          <span v-show="$store.getters.getL === 'en'">{{ cc.en }}</span>
-                          <span v-show="$store.getters.getL === 'fr'">{{ cc.fr }}</span>
-                          <span v-show="$store.getters.getL === 'ar'">{{ cc.ar }}</span>
-                          <span v-show="$store.getters.getL === 'tu'">{{ cc.tu }}</span>
-                        </div>
-                      </button>
-                      <div @click="
-                        dropd1 = !dropd1;
-                      dropd2 = false;
-                      " class="absolute right-2 h-full top-0 items-center justify-center px-3 flex z-0 cursor-pointer">
-                        
-                      </div>
-                      <ul v-show="dropd1" class="absolute p-2 bg-white shadow-sm z-20 w-full">
-                        <li style="cursor: not-allowed !important" class="flex py-2" @click="changeMyCountry('country')">
-                          {{ $store.getters.getT("country") }}
-                        </li>
+          <div class="row d-flex justify-content-center align-items">
+            <div class="col-6">
+              <p class="title3">Le membre ISO Assurance bénéficie de plusieurs avantages
+                «confort et remises sur les tarifs» sur les services
+                offerts par nos établissements de santé conventionnées.</p>
+            </div>
+            <div class="col-2">
+              <div class="">
+                <div class="relative">
+                  <button class="btnData countrytts lg:text-lg text-sm pl-3 w-full overflow-hidden"
+                    style="padding-right: 35px" :class="[country != 'country' ? 'choosedData' : '']" @click="
+                      dropd1 = !dropd1;
+                    dropd2 = false;
+                    ">
+                    <span v-show="country === 'country'">{{
+                      $store.getters.getT("country")
+                    }}</span>
+                    <div v-show="cc.word === country" v-for="(cc, index) in countries" :key="cc"
+                      @click="changeMyCountry(cc.word, index)" class="flex items-center cursor-pointer">
+                      <img :src="'/' + cc.flag" class="mr-2" width="15" />
+                      <span v-show="$store.getters.getL === 'en'">{{ cc.en }}</span>
+                      <span v-show="$store.getters.getL === 'fr'">{{ cc.fr }}</span>
+                      <span v-show="$store.getters.getL === 'ar'">{{ cc.ar }}</span>
+                      <span v-show="$store.getters.getL === 'tu'">{{ cc.tu }}</span>
+                    </div>
+                  </button>
+                  <div @click="
+                    dropd1 = !dropd1;
+                  dropd2 = false;
+                  " class="absolute right-2 h-full top-0 items-center justify-center px-3 flex z-0 cursor-pointer">
 
-                        <li v-for="(cc, index) in countries" :key="cc" @click="changeMyCountry(cc.word, index)"
-                          class="flex py-2 items-center cursor-pointer">
-                          <img :src="'/' + cc.flag" class="mr-2" width="15" />
-                          <span v-show="$store.getters.getL === 'en'">{{ cc.en }}</span>
-                          <span v-show="$store.getters.getL === 'fr'">{{ cc.fr }}</span>
-                          <span v-show="$store.getters.getL === 'ar'">{{ cc.ar }}</span>
-                          <span v-show="$store.getters.getL === 'tu'">{{ cc.tu }}</span>
-                        </li>
-                      </ul>
-                    </div>
                   </div>
-                </div>
-                <div class="col-4">
-                  <div class="relative w-3/4 2xl:w-full">
-                    <select name="wilaya" id="willaya" :class="[country != 'country' ? 'choosedData' : '']"
-                      @change="changeWilaya($event)" class="text-center w-full btnData lg:text-lg text-sm">
-                      <option value="" selected disabled>
-                        {{ $store.getters.getT("wilaya") }}
-                      </option>
-                      <option v-for="cc, in wilaya" :key="cc" :value="cc.value">
-                        <span v-if="$store.getters.getL === 'ar'">{{
-                          cc.ar_name
-                        }}</span>
-                        <span v-else>{{ cc.fr_name }}</span>
-                      </option>
-                    </select>
-                    <div style="pointer-events: none"
-                      class="absolute right-0 h-full top-0 items-center justify-center px-3 flex z-10">
-                     
-                    </div>
-                  </div>                    
+                  <ul v-show="dropd1" class="absolute p-2 bg-white shadow-sm z-20 w-full">
+                    <li style="cursor: not-allowed !important" class="flex py-2" @click="changeMyCountry('country')">
+                      {{ $store.getters.getT("country") }}
+                    </li>
+
+                    <li v-for="(cc, index) in countries" :key="cc" @click="changeMyCountry(cc.word, index)"
+                      class="flex py-2 items-center cursor-pointer">
+                      <img :src="'/' + cc.flag" class="mr-2" width="15" />
+                      <span v-show="$store.getters.getL === 'en'">{{ cc.en }}</span>
+                      <span v-show="$store.getters.getL === 'fr'">{{ cc.fr }}</span>
+                      <span v-show="$store.getters.getL === 'ar'">{{ cc.ar }}</span>
+                      <span v-show="$store.getters.getL === 'tu'">{{ cc.tu }}</span>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
+            <div class="col-4">
+              <div class="relative w-3/4 2xl:w-full">
+                <select name="wilaya" id="willaya" :class="[country != 'country' ? 'choosedData' : '']"
+                  @change="changeWilaya($event)" class="text-center w-full btnData lg:text-lg text-sm">
+                  <option value="" selected disabled>
+                    {{ $store.getters.getT("wilaya") }}
+                  </option>
+                  <option v-for="cc, in wilaya" :key="cc" :value="cc.value">
+                    <span v-if="$store.getters.getL === 'ar'">{{
+                      cc.ar_name
+                    }}</span>
+                    <span v-else>{{ cc.fr_name }}</span>
+                  </option>
+                </select>
+                <div style="pointer-events: none"
+                  class="absolute right-0 h-full top-0 items-center justify-center px-3 flex z-10">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div
           class="filtering flex lg:flex-nowrap flex-wrap justify-between mt-10 items-center flex-col-reverse lg:flex-row"
           style="width: 100%;">
-        </div> 
+        </div>
         <HopitalindexComponent></HopitalindexComponent>
         <div class="container hospitalsList" id="phone-hopital">
           <div class="row">
-              <div class="col-sm-3" v-for="(hospital, index) in getHospitals" :key="index" @mouseover="hoverMarker(index)" @mouseleave="leaveMarker(index)">
-                <div class="card">
-                  <div class="card-body ">
-                      <img
-                        :src="hospital.image.length > 0 ? 'https://admin-assurance-private.assuranceiso.com/web/images/' + hospital.image : '/inso-pics/Myplaceholder.jpg'"
-                        class="" style="OBJECT-FIT: contain;background: rgb(0 0 0/.15);" />
-                      <p class="card-title-2 totle">{{ hospital.name }}</p>
-                      <a @click="gotolinks(hospital.link, index)" class="btn2 btn-primary">s'avoir plus</a>
-                  </div>
+            <div class="col-sm-3" v-for="(hospital, index) in getHospitals" :key="index" @mouseover="hoverMarker(index)"
+              @mouseleave="leaveMarker(index)">
+              <div class="card">
+                <div class="card-body ">
+                  <img
+                    :src="hospital.image.length > 0 ? 'https://admin-assurance-private.assuranceiso.com/web/images/' + hospital.image : '/inso-pics/Myplaceholder.jpg'"
+                    class="" style="OBJECT-FIT: contain;background: rgb(0 0 0/.15);" />
+                  <p class="card-title-2 totle">{{ hospital.name }}</p>
+                  <a @click="gotolinks(hospital.link, index)" class="btn2 btn-primary">s'avoir plus</a>
                 </div>
               </div>
+            </div>
           </div>
         </div>
         <!--<div class="row">
@@ -162,9 +162,9 @@
                   <button :class="[
                     country != '' ? 'choosedData' : 'notSelected',
                   ]" class="btnData md:text-lg text-sm pl-3 mapDrop" style="padding-right: 20px" @click="
-                      dropd2 = !dropd2;
-                    dropd1 = false;
-                    ">
+  dropd2 = !dropd2;
+dropd1 = false;
+">
                     <span v-show="country === ''">
                       {{ $store.getters.getT("country") }}
                     </span>
@@ -353,10 +353,10 @@
 import {
   fetchHospitalsByParams,
   fetchHospitals,
-  SetCountry,
-  SetWilaya,
+  setHospitalCountry,
+  setHospitalWilaya,
   getMarkers,
-  setCenter,leave_marker,mark_marker
+  setCenter, leave_marker, mark_marker
 } from "../composable/index";
 import { GoogleMap, GMapInfoWindow } from "vue3-google-map";
 import GmapCustomMarker from "vue3-gmap-custom-marker";
@@ -378,10 +378,10 @@ export default {
     MyFooter,
     SearchUser,
     HopitalindexComponent,
-},
+  },
   data() {
     return {
-      
+
       mapCenter: {
         lat: null,
         lng: null,
@@ -408,7 +408,7 @@ export default {
           lat: 36.74442239909969,
           long: 3.0726561299136623,
           flag: "inso-pics/dz.png",
-        }, 
+        },
         {
           word: "Tunisie",
           fr: "Tunisie",
@@ -420,7 +420,7 @@ export default {
           flag: "inso-pics/tunisie.png",
         },
         {
-          word:"Turc",
+          word: "Turc",
           fr: "Turc",
           en: "Turc",
           ar: "تركيا",
@@ -451,7 +451,7 @@ export default {
       ],
     };
   },
-  computed: { 
+  computed: {
     getCenter: {
       get() {
         return {
@@ -480,6 +480,7 @@ export default {
       return this.$store.state.catalogue.markers;
     },
     getHospitals() {
+      console.log("Hospitals : ", this.$store);
       return this.$store.state.catalogue.hospitals;
     },
     getSpecialityName() {
@@ -569,7 +570,7 @@ export default {
       if (key != "country") {
         this.country = key;
         this.getCountryWilaya();
-        SetCountry(this.$store, this.country, this.nextPage);
+        setHospitalCountry(this.$store, this.country, this.nextPage);
         const { lat, long } = this.$store.getters.getCountryById(
           this.country
         ).name;
@@ -585,7 +586,7 @@ export default {
       const country = event.target.value;
       this.country = country;
       this.getCountryWilaya();
-      SetCountry(this.$store, country, this.nextPage);
+      setHospitalCountry(this.$store, country, this.nextPage);
       const { lat, long } = this.$store.getters.getCountryById(
         this.country
       ).name;
@@ -595,7 +596,7 @@ export default {
     },
     changeWilaya(event) {
       const wilaya = event.target.value;
-      SetWilaya(this.$store, wilaya, this.nextPage);
+      setHospitalWilaya(this.$store, wilaya, this.nextPage);
       this.getHospitals;
       this.getMarkers;
 
@@ -612,6 +613,7 @@ export default {
       fetchHospitalsByParams(this.$store, this.nextPage, speciaName);
     },
     handleInput(e) {
+      console.log("Hospital Event : ", e);
       let speciaName = e.target.value;
       fetchHospitalsByParams(this.$store, this.nextPage, speciaName);
     },
@@ -693,7 +695,7 @@ export default {
   created() {
 
     this.getCountryWilaya();
-    SetCountry(this.$store, this.country, this.nextPage);
+    setHospitalCountry(this.$store, this.country, this.nextPage);
 
     this.getLocation(() => {
       fetchHospitals(
@@ -712,7 +714,6 @@ export default {
 </script>
   <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 .mapouter {
   padding: 30px !important;
   height: auto !important;

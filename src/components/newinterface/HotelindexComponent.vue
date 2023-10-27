@@ -170,10 +170,9 @@
 import {
   fetchHotelsByParams,
   fetchHotels,
-  SetCountry,
-  SetWilaya,
+  setHotelWilaya,
   getMarkers,
-  setCenter,leave_marker,mark_marker
+  setCenter,leave_marker,mark_marker, setHotelCountry
 } from "../../composable/index";
 
 export default {
@@ -333,7 +332,7 @@ export default {
       if (key != "country") {
         this.country = key;
         this.getCountryWilaya();
-        SetCountry(this.$store, this.country, this.nextPage);
+        setHotelCountry(this.$store, this.country, this.nextPage);
         const { lat, long } = this.$store.getters.getCountryById(
           this.country
         ).name;
@@ -349,7 +348,7 @@ export default {
       const country = event.target.value;
       this.country = country;
       this.getCountryWilaya();
-      SetCountry(this.$store, country, this.nextPage);
+      setHotelCountry(this.$store, country, this.nextPage);
       const { lat, long } = this.$store.getters.getCountryById(
         this.country
       ).name;
@@ -359,7 +358,7 @@ export default {
     },
     changeWilaya(event) {
       const wilaya = event.target.value;
-      SetWilaya(this.$store, wilaya, this.nextPage);
+      setHotelWilaya(this.$store, wilaya, this.nextPage);
       this.getHotels;
       this.getMarkers;
 
@@ -375,8 +374,9 @@ export default {
     getRestrictedHotel() {
       fetchHotelsByParams(this.$store, this.nextPage);
     },
-    handleInput() {
-      fetchHotelsByParams(this.$store, this.nextPage);
+    handleInput(e) {
+      let searchInput = e.target.value;
+      fetchHotelsByParams(this.$store, this.nextPage,searchInput);
     },
     getLocation(closure) {
       if (navigator.geolocation) {
@@ -459,7 +459,7 @@ export default {
   created() {
 
     this.getCountryWilaya();
-    SetCountry(this.$store, this.country, this.nextPage);
+    setHotelCountry(this.$store, this.country, this.nextPage);
 
     this.getLocation(() => {
       fetchHotels(
