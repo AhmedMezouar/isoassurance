@@ -2,6 +2,7 @@ import { fetchHospitalsByParams } from "./catalogue";
 import { fetchAgencyByParams } from "./agency";
 import { fetchHotelsByParams } from "./hotel";
 import { fetchUnivsByParams } from "./univ";
+import { fetchCrechByParams } from "./creche";
 function setHospitalWilaya(store, wilaya, nextPage) {
   store
     .dispatch("catalogue/setWilaya", wilaya)
@@ -10,6 +11,16 @@ function setHospitalWilaya(store, wilaya, nextPage) {
       console.log("There was a problem creating your event");
     });
   fetchHospitalsByParams(store, nextPage, null);
+}
+
+function setCrecheWilaya(store, wilaya, nextPage) {
+  store
+    .dispatch("cresh/setWilaya", wilaya)
+    .then(() => { })
+    .catch(() => {
+      console.log("There was a problem creating your event");
+    });
+  fetchCrechByParams(store, nextPage, null);
 }
 
 function setUniversityWilaya(store, wilaya, nextPage) {
@@ -40,4 +51,10 @@ function SetWilayaAgency(store, wilaya, nextPage) {
     });
   fetchAgencyByParams(store, nextPage, null);
 }
-export { setHospitalWilaya, SetWilayaAgency,setHotelWilaya ,setUniversityWilaya};
+export {
+  setHospitalWilaya,
+  SetWilayaAgency,
+  setHotelWilaya,
+  setUniversityWilaya,
+  setCrecheWilaya
+};

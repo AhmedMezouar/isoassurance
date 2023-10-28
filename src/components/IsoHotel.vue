@@ -202,7 +202,7 @@ import {
   fetchHotelsByParams,
   fetchHotels,
   setHotelCountry,
-  SetWilaya,
+  setHotelWilaya,
   getMarkers,
   setCenter,leave_marker,mark_marker
 } from "../composable/index";
@@ -404,7 +404,7 @@ export default {
     },
     changeWilaya(event) {
       const wilaya = event.target.value;
-      SetWilaya(this.$store, wilaya, this.nextPage);
+      setHotelWilaya(this.$store, wilaya, this.nextPage);
       this.getHotels;
       this.getMarkers;
 
@@ -420,8 +420,9 @@ export default {
     getRestrictedHotel() {
       fetchHotelsByParams(this.$store, this.nextPage);
     },
-    handleInput() {
-      fetchHotelsByParams(this.$store, this.nextPage);
+    handleInput(e) {
+      let searchInput = e.target.value;
+      fetchHotelsByParams(this.$store, this.nextPage,searchInput);
     },
     getLocation(closure) {
       if (navigator.geolocation) {

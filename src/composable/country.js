@@ -2,6 +2,7 @@ import { fetchHospitalsByParams } from "./catalogue";
 import { fetchAgencyByParams } from "./agency";
 import { fetchHotelsByParams } from "./hotel";
 import { fetchUnivsByParams } from "./univ";
+import { fetchCrechByParams } from "./creche";
 function setHospitalCountry(store, country, nextPage) {
   store
     .dispatch("catalogue/setCountry", country)
@@ -11,6 +12,17 @@ function setHospitalCountry(store, country, nextPage) {
     });
   fetchHospitalsByParams(store, nextPage, null);
 }
+
+function setCrechCountry(store, country, nextPage) {
+  store
+    .dispatch("cresh/setCountry", country)
+    .then(() => { })
+    .catch(() => {
+      console.log("There was a problem creating your event");
+    });
+  fetchCrechByParams(store, nextPage, null);
+}
+
 function setUniversityCountry(store, country, nextPage) {
   store
     .dispatch("univ/setCountry", country)
@@ -39,4 +51,4 @@ function SetCountryAgency(store, country, nextPage) {
     });
   fetchAgencyByParams(store, nextPage);
 }
-export { setHospitalCountry, SetCountryAgency, setHotelCountry,setUniversityCountry };
+export { setHospitalCountry, SetCountryAgency, setHotelCountry,setUniversityCountry,setCrechCountry };

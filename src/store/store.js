@@ -25,7 +25,8 @@ const store = createStore({
     map,
     lang,
     univ,
-    agency,cresh,
+    agency,
+    cresh,
     hotel
   },
   state: {},

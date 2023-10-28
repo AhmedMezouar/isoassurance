@@ -25,15 +25,17 @@ function fetchHotels(store, nextPage = 1, long, lat, name, country, wilaya) {
 }
 
 function fetchHotelsByParams(store, nextPage = 1, name) {
+  const { country, wilaya, long, lat } = store.state.hotel
+
   fetchHotels(
     store,
     nextPage,
-    store.state.hotel.long,
-    store.state.hotel.lat,
+    long,
+    lat,
     name,
-    store.state.hotel.country,
-    store.state.hotel.wilaya
+    country, wilaya
   );
+
 }
 
 export { fetchHotels, fetchHotelsByParams };

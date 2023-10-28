@@ -12,16 +12,16 @@ export const state = {
   name: "",
   lat: 0,
   long: 0,
-  service:"hotel",
+  service: "hotel",
   url: "/api/hotel/filter",
-  lastpage:1
+  lastpage: 1
 };
 
 export const mutations = {
   SET_HOTELS(state, hotels) {
-    state.hotels= hotels
+    state.hotels = hotels
   },
-  SET_HOSPITALS_TOTAL(state, hotelsTotal) {
+  SET_HOTELS_TOTAL(state, hotelsTotal) {
     state.hotelsTotal = hotelsTotal;
   },
   RESSET_HOTELS(state, params) {
@@ -61,9 +61,8 @@ export const actions = {
     const { nextPage, ...data } = params;
     HotelService.filterByParams(state.service, nextPage, data)
       .then((response) => {
-        console.log("Api hotel response ok , Total : ",response.data.total);
         commit(
-          "SET_HOTEL_TOTAL",
+          "SET_HOTELS_TOTAL",
           parseInt(response.data.total)
         );
         commit("SET_NAME", params);
@@ -75,8 +74,8 @@ export const actions = {
         console.log(error);
       });
   },
-  setCordinates({ commit }, lat, longgg=0) {
-    commit("SET_CORDINATES", lat, longgg);
+  setCordinates({ commit }, lat, long ) {
+    commit("SET_CORDINATES", lat, long);
   },
   setWilaya({ commit }, wilaya) {
     commit("SET_WILAYA", wilaya);
