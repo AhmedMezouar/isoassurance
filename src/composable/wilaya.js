@@ -1,21 +1,60 @@
 import { fetchHospitalsByParams } from "./catalogue";
 import { fetchAgencyByParams } from "./agency";
-function SetWilaya(store, wilaya, nextPage) {
+import { fetchHotelsByParams } from "./hotel";
+import { fetchUnivsByParams } from "./univ";
+import { fetchCrechByParams } from "./creche";
+function setHospitalWilaya(store, wilaya, nextPage) {
   store
     .dispatch("catalogue/setWilaya", wilaya)
-    .then(() => {})
+    .then(() => { })
     .catch(() => {
       console.log("There was a problem creating your event");
     });
   fetchHospitalsByParams(store, nextPage, null);
 }
-function SetWilayaAgency(store, wilaya, nextPage) {
+
+function setCrecheWilaya(store, wilaya, nextPage) {
   store
-    .dispatch("agency/setWilaya", wilaya)
-    .then(() => {})
+    .dispatch("cresh/setWilaya", wilaya)
+    .then(() => { })
     .catch(() => {
       console.log("There was a problem creating your event");
     });
-    fetchAgencyByParams(store, nextPage, null);
+  fetchCrechByParams(store, nextPage, null);
 }
-export { SetWilaya,SetWilayaAgency };
+
+function setUniversityWilaya(store, wilaya, nextPage) {
+  store
+    .dispatch("univ/setWilaya", wilaya)
+    .then(() => { })
+    .catch(() => {
+      console.log("There was a problem setting wilaya of universities");
+    });
+  fetchUnivsByParams(store, nextPage, null);
+}
+
+function setHotelWilaya(store, wilaya, nextPage) {
+  store
+    .dispatch("hotel/setWilaya", wilaya)
+    .then(() => { })
+    .catch(() => {
+      console.log("There was a problem setting wilaya of hotel");
+    });
+  fetchHotelsByParams(store, nextPage, null);
+}
+function SetWilayaAgency(store, wilaya, nextPage) {
+  store
+    .dispatch("agency/setWilaya", wilaya)
+    .then(() => { })
+    .catch(() => {
+      console.log("There was a problem setting wilaya of hotel");
+    });
+  fetchAgencyByParams(store, nextPage, null);
+}
+export {
+  setHospitalWilaya,
+  SetWilayaAgency,
+  setHotelWilaya,
+  setUniversityWilaya,
+  setCrecheWilaya
+};

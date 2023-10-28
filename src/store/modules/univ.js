@@ -3,74 +3,80 @@ import CatalogueService from "@/services/CatalogueService";
 export const namespaced = true;
 
 export const state = {
-  hospitals: [],
+  universities: [],
   markers: [],
-  hospitalsTotal: 0,
-  hospital: {},
+  universitiesTotal: 0,
+  university: {},
   wilaya: "",
   country: "",
-  name:"",
+  name: "",
   lat: 0,
   long: 0,
-  service:"hospital",
-  url:"/api/university/filter"
+  service: "university",
+  url: "/api/university/filter",
+  lastpage:1
 };
 
 export const mutations = {
-  SET_HOSPITALS(state, hospitals) {
-    state.hospitals.push(...hospitals);
+  SET_UNIVERSITIES(state, universities) {
+    state.universities = universities
   },
-  SET_HOSPITALS_TOTAL(state, hospitalsTotal) {
-    state.hospitalsTotal = hospitalsTotal;
+  SET_UNIVERSITIES_TOTAL(state, universitiesTotal) {
+    state.universitiesTotal = universitiesTotal;
   },
-  RESSET_HOSPITALS(state, params) {
+  RESET_UNIVERSITIES(state, params) {
     const { name } = params;
-    if (name == state.name) state.hospitals = [];
+    if (name === state.name) {
+      state.universities = [];
+    }
   },
   SET_NAME(state, params) {
     const { name } = params;
     state.name = name;
   },
-  SET_HOSPITAL(state, hospital) {
-    state.hospital = hospital;
+  SET_UNIVERSITY(state, university) {
+    state.university = university;
   },
-  SET_CORDINATES(state, lat, long) {
+  SET_COORDINATES(state, { lat, long }) {
     state.lat = lat;
     state.long = long;
   },
   SET_COUNTRY(state, country) {
-    if (country != state.country) {
-      state.hospitals = [];
+    if (country !== state.country) {
+      state.universities = [];
     }
     state.country = country;
   },
   SET_WILAYA(state, wilaya) {
-    if (wilaya != state.wilaya) {
-      state.hospitals = [];
+    if (wilaya !== state.wilaya) {
+      state.universities = [];
     }
     state.wilaya = wilaya;
   },
   SET_MARKERS(state, markers) {
     state.markers = markers;
-  },
+  }
 };
 
 export const actions = {
-  fetchHospitals({ commit }, params) {
+  fetchUniversities({ commit, state }, params) {
     const { nextPage, ...data } = params;
-    CatalogueService.getAll(state.url,nextPage, data)
+    console.log("Params : ",params);
+    console.log("Request fetching univs ...");
+    CatalogueService.filterByParams(state.service, nextPage, data)
       .then((response) => {
+        console.log("Api response ok , Total : ",response.data.total);
         commit(
-          "SET_HOSPITALS_TOTAL",
+          "SET_UNIVERSITIES_TOTAL",
           parseInt(response.headers["x-total-count"])
         );
         commit("SET_NAME", params);
-        commit("RESSET_HOSPITALS", params);
-        commit("SET_HOSPITALS", response.data.data);
+        commit("RESET_UNIVERSITIES", params);
+        commit("SET_UNIVERSITIES", response.data.data);
       })
       .catch((error) => {
         console.log("There was an error:");
-        console.log(error)
+        console.log(error);
       });
   },
   setCordinates({ commit }, lat, long) {
@@ -85,25 +91,26 @@ export const actions = {
   setMarkers({ commit }, markers) {
     commit("SET_MARKERS", markers);
   },
-  getMarkers({ commit }) {
+  getMarkers({ commit, state }) {
     const markers = [];
-    if (state.hospitals.length != 0) {
-      state.hospitals.forEach((hospital, index) => {
-        if (hospital.latitude) {
+    if (state.universities.length !== 0) {
+      state.universities.forEach((university, index) => {
+        if (university.latitude) {
           markers[index] = {
-            lat: parseFloat(hospital.latitude),
-            lng: parseFloat(hospital.longitude),
-            address: hospital.address,
-            address_url: hospital.address_url,
-            address_displayed: hospital.address_displayed,
+            lat: parseFloat(university.latitude),
+            lng: parseFloat(university.longitude),
+            address: university.address,
+            address_url: university.address_url,
+            address_displayed: university.address_displayed
           };
         }
       });
-
-      commit("SET_MARKERS", markers);
-    } else {
-      commit("SET_MARKERS", markers);
     }
-  },
+    commit("SET_MARKERS", markers);
+  }
 };
-export const getters = {};
+export const getters = {
+  getLASTPAGE (state) {
+    return state.lastpage
+  }
+};

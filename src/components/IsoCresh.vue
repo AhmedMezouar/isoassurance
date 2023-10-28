@@ -61,9 +61,9 @@
           style="width: 100%;">
         </div>
         <CreshindexComponent></CreshindexComponent>
-            <div class="container hospitalsList" id="cresh-desktop">
+            <div class="container crechesList" id="cresh-desktop">
               <div class="row">
-                  <div class="col-sm-3" v-for="(hospital, index) in getHospitals" :key="index" @mouseover="hoverMarker(index)" @mouseleave="leaveMarker(index)">
+                  <div class="col-sm-3" v-for="(hospital, index) in getcreches" :key="index" @mouseover="hoverMarker(index)" @mouseleave="leaveMarker(index)">
                     <div class="card">
                       <div class="card-body">
                           <img
@@ -283,8 +283,8 @@
 import {
   fetchCrechByParams,
   fetchCrech,
-  SetCountry,
-  SetWilaya,
+  setCrechCountry,
+  setCrecheWilaya,
   getMarkers,
   setCenter, mark_marker, leave_marker
 } from "../composable/index";
@@ -320,7 +320,7 @@ export default {
       lat: "",
       long: "",
       nextPage: 1,
-      hospitals: [],
+      creches: [],
       markers: [],
       moreExists: false,
       country: "Algerie",
@@ -375,14 +375,13 @@ export default {
       },
     },
     getMarkers() {
-      this.getHospitals;
+      this.getcreches;
       
       getMarkers(this.$store, "cresh");
       return this.$store.state.cresh.markers;
     },
-    getHospitals() {
-      console.log(this.$store.state.cresh.hospitals)
-      return this.$store.state.cresh.hospitals;
+    getcreches() {
+      return this.$store.state.cresh.creches;
     },
     getSpecialityName() {
       return this.$store.state.speciality.specialityName;
@@ -463,13 +462,13 @@ export default {
       if (key != "country") {
         this.country = key;
         this.getCountryWilaya();
-        SetCountry(this.$store, this.country, this.nextPage);
+        setCrechCountry(this.$store, this.country, this.nextPage);
         const { lat, long } = this.$store.getters.getCountryById(
           this.country
         ).name;
 
         setCenter(this.$store, lat, long);
-        this.getHospitals;
+        this.getcreches;
         this.getMark;
       }
     },
@@ -479,18 +478,18 @@ export default {
       const country = event.target.value;
       this.country = country;
       this.getCountryWilaya();
-      SetCountry(this.$store, country, this.nextPage);
+      setCrechCountry(this.$store, country, this.nextPage);
       const { lat, long } = this.$store.getters.getCountryById(
         this.country
       ).name;
       setCenter(this.$store, lat, long);
-      this.getHospitals;
+      this.getcreches;
       this.getMarkers;
     },
     changeWilaya(event) {
       const wilaya = event.target.value;
-      SetWilaya(this.$store, wilaya, this.nextPage);
-      this.getHospitals;
+      setCrecheWilaya(this.$store, wilaya, this.nextPage);
+      this.getcreches;
       this.getMarkers;
 
       const { lat, long } = this.$store.getters.getWilayaById(
@@ -584,7 +583,7 @@ export default {
   created() {
 
     this.getCountryWilaya();
-    SetCountry(this.$store, this.country, this.nextPage);
+    setCrechCountry(this.$store, this.country, this.nextPage);
 
     this.getLocation(() => {
       fetchCrech(
@@ -789,7 +788,7 @@ export default {
   width: 120px;
 }
 
-.hospitalsList {
+.crechesList {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -923,7 +922,7 @@ export default {
     margin-top: 0px;
   }
 
-  .hospitalsList {
+  .crechesList {
     height: 100vw;
   }
 }

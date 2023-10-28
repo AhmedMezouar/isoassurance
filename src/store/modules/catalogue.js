@@ -62,8 +62,10 @@ export const mutations = {
 
 export const actions = {
   fetchHospitals({ commit }, params) {
+    console.log("Fetch hospitals");
+    
     const { nextPage, ...data } = params;
-    CatalogueService.filterByParams(state.service, nextPage, data)
+    CatalogueService.getAll(state.url, nextPage, data)
       .then((response) => {
         commit("SET_LASTPAGE", parseInt(response.data.last_page));
         commit(

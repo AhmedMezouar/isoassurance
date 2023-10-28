@@ -160,8 +160,8 @@
 import {
   fetchHospitalsByParams,
   fetchHospitals,
-  SetCountry,
-  SetWilaya,
+  setHospitalCountry,
+  setHospitalWilaya,
   getMarkers,
   setCenter,leave_marker,mark_marker
 } from "../../composable/index";
@@ -355,7 +355,7 @@ export default {
       if (key != "country") {
         this.country = key;
         this.getCountryWilaya();
-        SetCountry(this.$store, this.country, this.nextPage);
+        setHospitalCountry(this.$store, this.country, this.nextPage);
         const { lat, long } = this.$store.getters.getCountryById(
           this.country
         ).name;
@@ -371,7 +371,7 @@ export default {
       const country = event.target.value;
       this.country = country;
       this.getCountryWilaya();
-      SetCountry(this.$store, country, this.nextPage);
+      setHospitalCountry(this.$store, country, this.nextPage);
       const { lat, long } = this.$store.getters.getCountryById(
         this.country
       ).name;
@@ -381,7 +381,7 @@ export default {
     },
     changeWilaya(event) {
       const wilaya = event.target.value;
-      SetWilaya(this.$store, wilaya, this.nextPage);
+      setHospitalWilaya(this.$store, wilaya, this.nextPage);
       this.getHospitals;
       this.getMarkers;
 
@@ -483,7 +483,7 @@ export default {
   created() {
 
     this.getCountryWilaya();
-    SetCountry(this.$store, this.country, this.nextPage);
+    setHospitalCountry(this.$store, this.country, this.nextPage);
 
     this.getLocation(() => {
       fetchHospitals(
