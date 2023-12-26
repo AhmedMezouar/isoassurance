@@ -17,7 +17,7 @@
               <div class="row" style="font-size: 12px; position: relative;">
                 <div class=" col-12 mb-2">
                   <input type="text" class="btnData contr search form-control" placeholder="Rechercher ..."
-                    @keyup.stop="handleInput($event); gotores($event)" @click="fct()" name="search" id="search"
+                    @keyup.stop="handleInput($event); gotores($event)" @click="fct()" name="search" id="search" style="width: 100% !important; padding-block: 5px !important; padding-inline-start: 5px !important;"
                     ref="searchtxt">
                 </div>
                 <div class="col-6 mb-2">

@@ -1,5 +1,5 @@
 <template>
-  <div class="hello relative content">
+  <div class="hello relative content"> 
     <Header2></Header2>
     <div  class="flex justify-center flex-col items-center pt-6" style="margin-inline: auto; width:var(--inso-w)">
       <div class="mainconti"  id="" style="overflow: ">
@@ -23,7 +23,7 @@
                 <div class="col-3 support">
                     <div class="flex justify-around py-1 flex-col items-center">
                       <a href="tel:+213556000023"
-                        class="lg:text-start text-center lg:font-normal font-semibold cursor-pointer iso-hover" style="font-size: 18px !important;">ISO ASSURANCE Will Guide
+                        class="lg:text-start text-center lg:font-normal font-semibold cursor-pointer iso-hover" style="font-size: 14px !important;">ISO ASSURANCE Will Guide
                         you</a>
                     </div>
                 </div>
@@ -34,19 +34,19 @@
         <div class="container" style="margin-top: 30px !important;">
               <div class="row d-flex justify-content-center align-items hotel-seacrh">
                 <div class="col-6">
-                  <input type="text" class="btnData contr search form-control" placeholder="Rechercher ..."
+                  <input type="text" class="btnData-3 search form-control" placeholder="Rechercher ..."
                         @keyup.stop="handleInput($event); gotores($event)"
-                        @click="fct()" name="search" id="search" ref="searchtxt" >
+                        @click="fct()" name="search" id="search" ref="searchtxt" style="padding-block: 10px !important; padding-inline: 15px !important; font-size: 12px !important;">
                       </div>
                 <div class="col-2">
                   <div class="">
                     <div class="relative">
-                      <button class="btnData countrytts lg:text-lg text-sm pl-3 w-full overflow-hidden"
+                      <button class="btnData-3 countrytts lg:text-lg text-sm pl-3 w-full overflow-hidden"
                         style="padding-right: 35px" :class="[country != 'country' ? 'choosedData' : '']" @click="
                           dropd1 = !dropd1;
                         dropd2 = false;
                         ">
-                        <span v-show="country === 'country'">{{
+                        <span v-show="country === ''">{{
                           $store.getters.getT("country")
                         }}</span>
                         <div v-show="cc.word === country" v-for="(cc, index) in countries" :key="cc"
@@ -84,7 +84,7 @@
                 <div class="col-4">
                   <div class="relative w-3/4 2xl:w-full">
                     <select name="wilaya" id="willaya" :class="[country != 'country' ? 'choosedData' : '']"
-                      @change="changeWilaya($event)" class="text-center w-full btnData lg:text-lg text-sm">
+                      @change="changeWilaya($event)" class="text-center w-full btnData-3 lg:text-lg text-sm">
                       <option value="" selected disabled>
                         {{ $store.getters.getT("wilaya") }}
                       </option>
@@ -114,7 +114,7 @@
         <hotelindexComponent></hotelindexComponent>
         <div class="container hospitalsList">
           <div class="row">
-              <div class="col-12" v-for="(hotel, index) in getHotels" :key="index" @mouseover="hoverMarker(index)" @mouseleave="leaveMarker(index)">
+              <div class="" v-for="(hotel, index) in getHotels" :key="index" @mouseover="hoverMarker(index)" @mouseleave="leaveMarker(index)">
                 <div class="hotel-desktop">
                   <div class="hotel-desktop-body">
                     <div class="row">
@@ -185,6 +185,7 @@
               </div>
           </div>
         </div>
+        
       </div>
       <SearchUser></SearchUser>
       <!-- FOOTER -->
@@ -236,7 +237,7 @@ export default {
       moreExists: false,
       country: "Algerie",
       wilaya: [],
-      wila: "",
+      wila: "alger",
       countries: [],
       dropd1: false,
       dropd2: false,
@@ -254,7 +255,20 @@ export default {
         "dz.png",
         "tunisie.png",
         "tu.png",
-
+        "morocco.png",
+        "arabi.png", 
+        "libya.png", 
+        "canada.png",
+        "island.png",
+        "egypt.png", 
+        "jordan.png",
+        "georgia.png",
+        "india.png", 
+        "russia.png", 
+        "lebanon.png", 
+        "brazil.png",
+        "malaysia.png", 
+        "united-states.png",
       ],
     };
   },
@@ -287,8 +301,6 @@ export default {
       return this.$store.state.hotel.markers;
     },
     getHotels() {
-      console.log('Hotels',this.$store.state);
-
       return this.$store.state.hotel.hotels;
     },
     getSpecialityName() {
@@ -497,7 +509,11 @@ export default {
   created() {
 
     this.getCountryWilaya();
-    setHotelCountry(this.$store, this.country, this.nextPage);
+    setHotelCountry(
+      this.$store, 
+      this.country, 
+      this.nextPage);
+    
     this.getLocation(() => {
       fetchHotels(
         this.$store,
@@ -505,7 +521,7 @@ export default {
         this.long,
         this.lat,
         "",
-        this.country,
+        this.country="",
         ""
       );
     });

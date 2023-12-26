@@ -161,7 +161,7 @@ i {
 }
 
 .mapDrop {
-  background-color: var(--nav-bgc) !important;
+  background-color: black !important;
   margin: 4px;
   color: white;
   border-radius: 20px;
@@ -234,22 +234,39 @@ a {
     /* 28px */
   ;
 }
-
+.btnData-2 {
+  border: .5px solid black !important;
+  border-radius: 40px;
+  background-color: white !important;
+  padding-block: 1px !important;
+  padding-inline: 15px;
+  color: black;
+  font-weight: 500;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.btnData-3 {
+  border: 1px solid black !important;
+  border-radius: 40px;
+  background-color: white !important;
+  padding-block: 5px;
+  padding-inline: 18px;
+  color: black;
+  font-weight: 500;
+  font-size: 12px;
+  white-space: nowrap;
+}
 .btnData {
-  border: 1px solid var(--nav-bgc);
+  border: 1px solid black;
   border-radius: 40px;
   padding: 1px;
   padding-left: 10px;
   padding-right: 10px;
-  color: var(--nav-bgc);
+  color: black;
   font-weight: 500;
   white-space: nowrap;
 }
 
-.choosedData {
-  background-color: var(--nav-bgc) !important;
-  color: white
-}
 
 .lang {
   -webkit-appearance: none;
@@ -306,8 +323,8 @@ a {
 }
 
 .btnBg {
-  background-color: var(--nav-bgc);
-  border-color: var(--nav-bgc);
+  background-color: black;
+  border-color: black;
 }
 
 .footerClient {
@@ -361,18 +378,13 @@ a {
   padding-top: -10px;
 }
 .title3 {
-  font-size: 18px;
+  font-size: 14px !important;
 }
 .container {
   width: 100%;
 }
 .hospitalsList {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex !important;
-  flex-wrap: wrap !important;
-  justify-content: space-between;
   aspect-ratio: 1/1;
   overflow: auto;
 }
@@ -554,7 +566,8 @@ margin-right: -20px;
 }
 .card-title-2 {
   height: 120px;
-  font-size: 22px;
+  font-size: 18px;
+  font-weight: 400;
 } 
 .totle {
   padding-top: 20px;
@@ -586,6 +599,26 @@ margin-right: -20px;
   animation: moveButton 1s linear infinite;
 } 
 .btnNew:hover {
+  background-color: #1e85f1;
+  color: #f1561e;
+  background-color: white;
+}
+.btnNew-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: white; 
+  background-color: #f1561e; 
+  border: 1px solid #9d2f06;
+  text-transform: capitalize; 
+  padding-inline: 20px;
+  border-radius: 20px;
+  padding-block: 8px;
+  margin-top: 50px;
+  transition: all .5s;
+} 
+.btnNew-2:hover {
   background-color: #1e85f1;
   color: #f1561e;
   background-color: white;
@@ -840,7 +873,7 @@ margin-right: -20px;
 }
 
 .ot {
-  background-color: var(--nav-bgc);
+  background-color: black;
   padding-top: 5px;
   padding-bottom: 5px;
 }
@@ -871,7 +904,7 @@ margin-right: -20px;
 
 .notSelected {
   background-color: white !important;
-  color: var(--nav-bgc);
+  color: black;
   fill: black
 }
 
@@ -962,10 +995,6 @@ margin-right: -20px;
   width: calc(80% - 20px);
   min-width: calc(80% - 20px);
   margin-right: 15px;
-}
-
-.btnData {
-  width: 90%;
 }
 
 
@@ -1794,7 +1823,6 @@ div#specHos:after {
   .signBtn,
   .plusBtn {
     font-size: 23px;
-
   }
 
   .plusBtn {
@@ -2147,7 +2175,7 @@ select {
     font-size: 14px;
     border: 1px solid #4985BD;
     border-radius: 3px;
-    padding: 5px 15px 5px 15px;
+    padding: 5px 5px 5px 5px !important;
     color: #479BD8;
   }
   .input-special {
@@ -2183,10 +2211,18 @@ select {
   .clin {
     display: block !important;
   }
-
+  #cresh {
+    display: block !important;
+  }
+}
+.pad-block {
+  padding-block: 15px !important;
 }
 /*Tablette Part*/
 @media screen and (max-width: 912px) { 
+  #cresh {
+    display: block !important;
+  }
   .grad__img {
     display: none !important;
   }
@@ -2308,7 +2344,7 @@ select {
   .contactUs .mlkj {
     width: 50%;
   }
-
+  
 .bronze_new, .silver_new, .golden_new {
     width: 100%;
     justify-content: space-around;
@@ -2317,6 +2353,22 @@ select {
 
 /*Phone Part*/
 @media screen and (max-width: 770px) {
+  #ch-desktop {
+    display: none;
+  }
+.bronze_new,
+.silver_new,
+.golden_new {
+  width: 100% !important;
+  height: 100%;
+  margin: 20px;
+  font-size: 55px;
+  border-radius: 70px;
+  -webkit-border-radius: 70px;
+  -moz-border-radius: 70px;
+  -ms-border-radius: 70px;
+  -o-border-radius: 70px;
+}
   .carousel-item-phone {
     display: block;
     background-image: url("https://img.freepik.com/photos-gratuite/belle-plage-tropicale-mer_74190-6584.jpg?w=1060&t=st=1696103455~exp=1696104055~hmac=0a4dd490647d77e4b6ecdba888dfe6e215fc74974ae602437e7d13f23b908f1e");
@@ -2640,6 +2692,23 @@ select {
   padding-bottom: 5px;
 }
 @media screen and (max-width: 550px) {
+.bronze_new,
+.silver_new,
+.golden_new {
+  width: 100% !important;
+  height: 100%;
+  background-color: #009f28 !important;
+  margin: 20px;
+  font-size: 55px;
+  border-radius: 70px;
+}
+
+  .hotel-desktop {
+    display: none !important;
+  }
+  .hospitalsList {
+    height: 80px !important;
+  }
   .parag-arab {
     padding-bottom: 500px !important;
   }
@@ -2823,21 +2892,12 @@ select {
     display: none;
   }
   #clinique--2 {
-    display: block;
-  }
-  .contr {
-    width: 200px !important;
-    padding: 0px !important;
+    display: block !important;
   }
   .contr-hospital {
     text-align: center;
     width: 300px !important;
     margin-top: 15px !important;
-  }
-  .btnData {
-    text-align: center !important;
-    height: 35px !important;
-    width: 280px !important;
   }
   .mtgv {
     display: none;
@@ -2906,9 +2966,6 @@ select {
     margin-left: -25px;
   }
 
-  .btnData {
-    height: 20px;
-  }
   .detailsCard {
     min-width: calc(48% - 8px);
     margin-inline: 4px;
@@ -3031,8 +3088,16 @@ select {
   margin-inline: 4px !important;
 }
 /* ------------------------ */ 
-
+.f-right {
+  float: right !important;
+} 
+.f-left {
+  float: left !important;
+}
 .btn-prim2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #1e85f1 !important;
   color: white !important;
   border-radius: 50px !important;
@@ -3097,15 +3162,9 @@ select {
   background-image: linear-gradient(45deg, #094b91, #094b91);
   color: white !important;
   box-shadow: 15px 15px 16px rgb(0 0 0 /.2);
-}
-
-
-
-.golden_new {
   overflow: hidden;
   border-radius: 40px;
   backdrop-filter: blur(15px);
-  max-width: calc(100%/3 - 20px);
   text-align: center;
   position: relative;
   padding-top: 40px;
@@ -3120,7 +3179,6 @@ select {
   border-radius: 40px;
   backdrop-filter: blur(15px);
   min-width: 230px;
-  max-width: calc(100%/3 - 20px);
   text-align: center;
   position: relative;
   padding: 10px 30px 10px 30px;
@@ -3138,7 +3196,7 @@ select {
 .bronze_new,
 .silver_new,
 .golden_new {
-  width: 27% !important;
+  width: 25%;
   height: 100%;
   margin: 20px;
   font-size: 55px;
@@ -3156,7 +3214,7 @@ select {
 .cardtitle {
   font-size: 37px;
   padding: 15px;
-
+  text-align: center;
 }
 .golden_new .price {
   font-size: 60px;

@@ -237,23 +237,23 @@
         
         <div class="px-2 hosCont 2xl:pt-0 pt-0" :style="{ opacity: showHosMap ? '1' : '0' }"
           style="max-height: 100%;overflow: auto; margin-top: -20px;">
-          <div class="container hospitalsList" style="padding-right: 50px; position: relative;">
+          <div class="container hospitalsList" style="padding-right: 50px;">
             <div class="row" style="font-size: 12px;">
-              <div class="col-sm-12 list-clinique-fixe">
-                <div class="row list-clinique-fixe" style="position: relative;">
+              <div class="col-sm-12 list-clinique-fixe" style="background-color: white !important; border-radius: 20px !important; position: sticky !important; top: 0; width: 100%; z-index: 1;">
+                <div class="row list-clinique-fixe">
                   <div class="col-sm-12 flex justify-center flex-col items-center">
                     <h5 style="color: #1e85f1; font-weight: bold; font-size: 32px;">Liste des Cliniques</h5>
                   </div>
-                  <div class="col-4 mb-3 search">
-                    <input type="text" class="btnData contr search form-control" placeholder="Rechercher ..."
+                  <div class="col-6 mb-3 search">
+                    <input type="text" class="btnData-2 search form-control" placeholder="Rechercher ..."
                       @keyup.stop="handleInput($event); gotores($event)"
-                      @click="fct()" name="search" id="search" ref="searchtxt" >
+                      @click="fct()" name="search" id="search" ref="searchtxt" style="padding-block: 5px !important; padding-inline: 15px !important; font-size: 12px !important;">
                   </div>
-                  <div class="col-4 mb-3 contr" style="color: black !important;">
+                  <div class="col-3 mb-3 contr" style="color: black !important;">
                     <div class="">
                     <div class="relative">
-                      <button class="btnData countrytts lg:text-lg text-sm pl-3 w-full overflow-hidden"
-                        style="padding-right: 35px" :class="[country != 'country' ? 'choosedData' : '']" @click="
+                      <button class="btnData-2 countrytts lg:text-lg text-sm pl-3 w-full overflow-hidden"
+                        style="padding-right: 5px" :class="[country != 'country' ? 'choosedData' : '']" @click="
                           dropd1 = !dropd1;
                         dropd2 = false;
                         ">
@@ -292,10 +292,10 @@
                     </div>
                   </div>
                   </div> 
-                  <div class="col-4 mb-3 contr">
+                  <div class="col-3 mb-3 contr">
                     <div class="relative w-3/4 2xl:w-full">
                       <select name="wilaya" id="willaya" :class="[country != 'country' ? 'choosedData' : '']"
-                        @change="changeWilaya($event)" class="text-center w-full btnData lg:text-lg text-sm">
+                        @change="changeWilaya($event)" class="text-center w-full btnData-2 lg:text-lg text-sm">
                         <option value="" selected disabled>
                           {{ $store.getters.getT("wilaya") }}
                         </option>
@@ -308,11 +308,7 @@
                       </select>
                       <div style="pointer-events: none"
                         class="absolute right-0 h-full top-0 items-center justify-center px-3 flex z-10">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="5" viewBox="0 0 23 10">
-                          <path fill="#707070" id="Polygone_1" data-name="Polygone 1"
-                            d="M10.844.571a1,1,0,0,1,1.312,0l8.826,7.675A1,1,0,0,1,20.326,10H2.674a1,1,0,0,1-.656-1.755Z"
-                            transform="translate(23 10) rotate(180)" />
-                        </svg>
+                        
                       </div>
                     </div>                    
                   </div>
@@ -346,7 +342,7 @@
                           </div>
                           <div class="col-sm-4">
                             <a  target="_blank" :href="hospital.address_url" class="btn2 btn-primary">
-                              Localisation</a>
+                              Maps</a>
                           </div>
                           <div class="col-sm-4" @click="gotolinks(hospital.link, index)">
                             <a @click="gotolinks(hospital.link, index)" class="btn2 btn-primary">

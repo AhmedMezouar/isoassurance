@@ -15,11 +15,7 @@
           <div class="card card-special">
             <div class="card-body">
               <div class="row" style="font-size: 12px; position: relative;">
-                <div class=" col-12 mb-2">
-                  <input type="text" class="btnData contr search form-control" placeholder="Rechercher ..."
-                    @keyup.stop="handleInput($event); gotores($event)" @click="fct()" name="search" id="search"
-                    ref="searchtxt">
-                </div>
+
                 <div class="col-6 mb-2">
                   <div @click="
                     dropd1 = !dropd1;
@@ -103,7 +99,7 @@
         <div class="phoneIcnns2">
           <div class="row d-flex justify-content-center">
             <!-- HOPITAL -->
-            <div class="col-12" v-for="(hospital, index) in getHospitals" :key="index" @mouseover="hoverMarker(index)"
+            <div class="col-12" v-for="(hospital, index) in getcreches" :key="index" @mouseover="hoverMarker(index)"
               @mouseleave="leaveMarker(index)">
               <div class="card card-special">
                 <div class="card-body">
@@ -121,7 +117,6 @@
                     {{ distance }} km 2,564.58 km
                   </span>
                   <div class="row mx-auto justify-content-center icon-hopital mt-4">
-
 
                     <div class="col-6" style="margin-top: -20px;">
                       <a :href="'Tel:' + hospital.phone_number"><span>Appelle</span></a>
@@ -228,11 +223,11 @@ export default {
       },
     },
     getMarkers() {
-      this.getCreches;
+      this.getcreches;
       getMarkers(this.$store, "cresh");
       return this.$store.state.cresh.markers;
     },
-    getCreches() {
+    getcreches() {
       return this.$store.state.cresh.creches;
     },
     getSpecialityName() {

@@ -5,13 +5,12 @@
 <!-- Ambulance-->
 <div class="thiscntnr" >
 <div id="choix-desktop" style="overflow: hidden;">
-  <div id="">
+  <div id="ch-desktop">
       <div class="">
         <div>
           <div class="row d-flex justify-content-center align-items-center">
-            
             <div class="col-6">
-              <button @click="goAmbulance()" type="button" class="btn btn-primary btn-prim2 d-flex align-items-center justify-content-center">
+              <button @click="goAmbulance()" type="button" class="btn btn-primary btn-prim2 f-right d-flex align-items-center justify-content-center">
                 <div class="d-flex justify-content-center align-items-center">
                   <div class="row">
                     <div class="col-sm-12">
@@ -25,7 +24,7 @@
               </button>
             </div>
             <div class="col-6">
-              <button @click="goAnalyse()" type="button" class="btn btn-primary btn-prim2 d-flex align-items-center justify-content-center">
+              <button @click="goAnalyse()" type="button" class="btn btn-primary btn-prim2 f-left d-flex align-items-center justify-content-center">
                 <div class="d-flex justify-content-center align-items-center">
                   <div class="row">
                     <div class="col-sm-12">

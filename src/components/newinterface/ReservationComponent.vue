@@ -14,7 +14,7 @@
                 <label for="name" class="text-gray-700">N° d'assurance</label> 
                 <input required type="text" class="text-black block border w-full rounded-md p-2" name="name" ref="name" placeholder="Entrer votre numéro dassurance" id="name">
             </div>
-            <button @click="goConfirme()" class="plusBtn btnNew hosdatabtn"> 
+            <button @click="goConfirme()" class="btnNew-2 hosdatabtn"> 
                 Vérification
             </button>
         </form>
@@ -90,7 +90,7 @@
     .partfield2 input {
         border-radius: 10px;
         border: 1px solid black;
-        width: 50% !important;
+        width: 100% !important;
         padding: 10px;
     }
 

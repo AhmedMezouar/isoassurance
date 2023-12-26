@@ -15,7 +15,7 @@
           <div class=" col-12 mb-2">
                 <input type="text" class="btnData contr search form-control" placeholder="Rechercher ..."
                 @keyup.stop="handleInput($event)"
-                  name="search" id="search" ref="searchtxt" style="width: 100% !important;">                      
+                  name="search" id="search" ref="searchtxt" style="width: 100% !important; padding-block: 5px !important; padding-inline-start: 5px !important;">                      
           </div>
           <div class="col-6 mb-2">
               <div @click="

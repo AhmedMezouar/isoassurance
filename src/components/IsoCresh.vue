@@ -37,7 +37,7 @@
                 <div class="col-5">
                   <div class="">
                     <select name="wilaya" id="willaya" :class="[country != 'country' ? 'choosedData' : '']"
-                      @change="changeWilaya($event)" class="text-center w-full btnData lg:text-lg text-sm">
+                      @change="changeWilaya($event)" class="text-center w-full btnData-3 lg:text-lg text-sm">
                       <option value="" selected disabled>
                         {{ $store.getters.getT("wilaya") }}
                       </option>
@@ -76,6 +76,7 @@
                   </div>
               </div>
             </div>
+            
           <!-- Map Section-->
           <div class="mapouter">
             <div class="gmap_canvas">
@@ -90,7 +91,7 @@
                   <div class="relative w-fit h-auto">
                     <button :class="[
                       country != '' ? 'choosedData' : 'notSelected',
-                    ]" class="btnData md:text-lg text-sm pl-3 mapDrop" style="padding-right: 20px" @click="
+                    ]" class="btnData-3 md:text-lg text-sm pl-3 mapDrop" style="padding-right: 20px" @click="
                         dropd2 = !dropd2;
                       dropd1 = false;
                       ">

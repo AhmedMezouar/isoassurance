@@ -13,7 +13,7 @@
           <img src="../../assets/done-bg.png" alt="">
         </div>    
         <form>
-            <button @click="goChoix()" class="plusBtn btnhover btnNew hosdatabtn"> 
+            <button @click="goChoix()" class="btnhover btnNew-2 hosdatabtn"> 
                 Commencer
             </button>
         </form>

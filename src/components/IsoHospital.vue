@@ -38,7 +38,7 @@
             <div class="col-2">
               <div class="">
                 <div class="relative">
-                  <button class="btnData countrytts lg:text-lg text-sm pl-3 w-full overflow-hidden"
+                  <button class="btnData-3 countrytts lg:text-lg text-sm pl-3 w-full overflow-hidden"
                     style="padding-right: 35px" :class="[country != 'country' ? 'choosedData' : '']" @click="
                       dropd1 = !dropd1;
                     dropd2 = false;
@@ -81,7 +81,7 @@
             <div class="col-4">
               <div class="relative w-3/4 2xl:w-full">
                 <select name="wilaya" id="willaya" :class="[country != 'country' ? 'choosedData' : '']"
-                  @change="changeWilaya($event)" class="text-center w-full btnData lg:text-lg text-sm">
+                  @change="changeWilaya($event)" class="text-center w-full btnData-3 lg:text-lg text-sm">
                   <option value="" selected disabled>
                     {{ $store.getters.getT("wilaya") }}
                   </option>

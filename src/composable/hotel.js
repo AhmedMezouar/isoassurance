@@ -33,7 +33,8 @@ function fetchHotelsByParams(store, nextPage = 1, name) {
     long,
     lat,
     name,
-    country, wilaya
+    country, 
+    wilaya
   );
 
 }
