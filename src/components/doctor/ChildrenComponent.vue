@@ -91,7 +91,6 @@ const checkAge = (birth) => {
   birthday.setFullYear(year);
 
   let age = now >= birthday ? years : years - 1;
-  alert(age)
   if (age < 18) {
     return age;
   } else {
