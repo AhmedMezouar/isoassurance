@@ -18,7 +18,7 @@
           </div>
           <div class="flex items-center  pl-1 gap-2">
             <img src="../../../public/inso-pics/check.png" class=" h-4" alt="">
-            <p class="text-sm text-slate-600">{{  age(couple.birth) }} ans</p>
+            <p class="text-sm text-slate-600">{{  calculateAge(couple.birth) }} ans</p>
           </div>
         </div>
       </div>
@@ -41,13 +41,22 @@ const wife = ref();
         default:[]
     }
  })
- const age = (birth) => {
+ const calculateAge = (birth) => {
   let now = new Date();
   let year = now.getFullYear();
-  let birthday = new Date(birth);
+
+  // Extracting day, month, and year components from the birth string
+  let [day, month, birthYear] = birth.split('/').map(Number);
+
+  // JavaScript Date uses months starting from 0 (January is 0, December is 11)
+  // Adjusting the month to start from 0
+  month--;
+
+  let birthday = new Date(birthYear, month, day);
+
   let years = year - birthday.getFullYear();
-  birthday = new Date(birthday.getTime()); // clone
   birthday.setFullYear(year);
+
   return now >= birthday ? years : years - 1;
 };
  const assignCouples=(wifeElement,isChecked)=>{

@@ -1,5 +1,5 @@
 <template>
-  <div class="border-2 border-slate-200 rounded-2xl min-h-64">
+  <div class="border-2 border-slate-200 rounded-2xl min-h-64 mt-16">
     <div class="mx-auto w-10/12 py-6">
       <!-- part typgoraphy-->
       <div class="flex justify-start">

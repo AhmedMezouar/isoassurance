@@ -11,7 +11,7 @@
       <!-- part checkbox-->
       <div id="children-section" class="grid grid-cols-1 mx-auto p-4 gap-2">
         <div v-for="(child, index) in childrens" :key="index" >
-          <div v-if="checkAge(child)" class="px-4 py-3 rounded-sm border-2 border-slate-200 ">
+          <div v-if="checkAge(child.birth)" class="px-4 py-3 rounded-sm border-2 border-slate-200 ">
             <div class="flex justify-between w-11/12">
               <span class="text-sm ml-2">{{
                 child.name + " " + child.surname
@@ -30,7 +30,7 @@
                 class="h-4"
                 alt=""
               />
-              <p class="text-sm text-slate-600">{{ age(child.birth) }}</p>
+              <p class="text-sm text-slate-600">{{ calculateAge(child.birth) }}</p>
             </div>
           </div>
         </div>
@@ -58,25 +58,45 @@ const assignChildren = (childElement, isChecked) => {
   appointement.addChildren(childElement, isChecked);
 };
 
-const age = (birth) => {
+const calculateAge = (birth) => {
   let now = new Date();
   let year = now.getFullYear();
-  let birthday = new Date(birth);
+
+  let [day, month, birthYear] = birth.split('/').map(Number);
+  month--;
+  
+  let birthday = new Date(birthYear, month, day);
   let years = year - birthday.getFullYear();
-  birthday = new Date(birthday.getTime()); // clone
   birthday.setFullYear(year);
+
   return now >= birthday ? years : years - 1;
 };
-const checkAge = (child) => {
-  let birthdate = child.birth;
+ const assignCouples=(wifeElement,isChecked)=>{
+  appointement.addCouples(wifeElement,isChecked)
+ }
+const checkAge = (birth) => {
   let now = new Date();
   let year = now.getFullYear();
-  let birthday = new Date(birthdate);
+
+  // Extracting day, month, and year components from the birth string
+  let [day, month, birthYear] = birth.split('/').map(Number);
+
+  // JavaScript Date uses months starting from 0 (January is 0, December is 11)
+  // Adjusting the month to start from 0
+  month--;
+
+  let birthday = new Date(birthYear, month, day);
+
   let years = year - birthday.getFullYear();
-  birthday = new Date(birthday.getTime()); // clone
   birthday.setFullYear(year);
-  const age = now >= birthday ? years : years - 1;
-  return age < 18 ? true : false;
+
+  let age = now >= birthday ? years : years - 1;
+  alert(age)
+  if (age < 18) {
+    return age;
+  } else {
+    return undefined; // If age is 18 or higher, return undefined
+  }
 };
 </script>
 
