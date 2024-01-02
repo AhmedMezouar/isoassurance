@@ -4,7 +4,7 @@
       <!-- part typgoraphy-->
       <div class="flex justify-between p-4">
         <div>
-          <span class="text-blue-500 text-sm font-bold">Wife </span>
+          <span class="text-blue-500 text-sm font-bold">Wife/Husband </span>
         </div>
       </div>
 
